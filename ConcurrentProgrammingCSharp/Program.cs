@@ -14,12 +14,14 @@
 			//t.Start();
 			//Console.ReadKey();
 
-			var t1 = Task.Factory.StartNew<int>(TextLength, "Testing");
-			var t2 = new Task<int>(TextLength, "New");
-			t2.Start();
+			//var t1 = Task.Factory.StartNew<int>(TextLength, "Testing");
+			//var t2 = new Task<int>(TextLength, "New");
+			//t2.Start();
 
-			Console.WriteLine($"T1 result is {t1.Result}");
-			Console.WriteLine($"T2 result is {t2.Result}");
+			//Console.WriteLine($"T1 result is {t1.Result}");
+			//Console.WriteLine($"T2 result is {t2.Result}");
+
+			TaskCancellation.RunExample();
 		}
 
 		static int TextLength(object arg)
