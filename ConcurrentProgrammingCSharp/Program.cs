@@ -21,7 +21,8 @@
 			//Console.WriteLine($"T1 result is {t1.Result}");
 			//Console.WriteLine($"T2 result is {t2.Result}");
 
-			TaskCancellation.RunExample();
+			//TaskCancellation.RunExample();
+			CriticalSections.RunExample();
 		}
 
 		static int TextLength(object arg)
