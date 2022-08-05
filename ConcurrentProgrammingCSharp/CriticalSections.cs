@@ -9,23 +9,29 @@ namespace ConcurrentProgrammingCSharp
 	public class BankAccount
 	{
 		private object padLock = new object();
+		private int balance;
 
-		public int Balance { get; private set; }
+		public int Balance { get => balance; private set => balance = value; }
 
 		public void Deposit(int amount)
 		{
-			lock(padLock)
-			{
-				Balance += amount;
-			}
+			//lock (padLock)
+			//{
+			//	Balance += amount;
+			//}
+			Interlocked.Add(ref balance, amount);
 		}
 
 		public void Withdraw(int amount)
 		{
-			lock (padLock)
-			{
-				Balance -= amount;
-			}
+			//lock (padLock)
+			//{
+			//	Balance -= amount;
+			//}
+
+			Interlocked.Add(ref balance, -amount);
+			//Interlocked.MemoryBarrier(); Any code before and after is separated in terms of execution sequence
+			//Interlocked.Exchange(ref balance, amount); Sets variable of a certain type to a value, and returns original value atomically
 		}
 	}
 
