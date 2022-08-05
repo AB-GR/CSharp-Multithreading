@@ -25,7 +25,8 @@
 			//CriticalSections.RunExample();
 			//SpinLocks.RunExample();
 			//Mutexes.RunExample();
-			MutexCrossProcess.RunExample();
+			//MutexCrossProcess.RunExample();
+			ReaderWriterLockSlimExample.RunExample();
 		}
 
 		static int TextLength(object arg)
