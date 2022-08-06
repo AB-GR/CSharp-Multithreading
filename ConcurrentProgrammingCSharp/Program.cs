@@ -28,7 +28,8 @@
 			//MutexCrossProcess.RunExample();
 			//ReaderWriterLockSlimExample.RunExample();
 			//ConcurrentDictionaryExamples.RunExample();
-			BlockingCollectionExample.Run();
+			//BlockingCollectionExample.Run();
+			ContinuationExample.Run();
 		}
 
 		static int TextLength(object arg)
