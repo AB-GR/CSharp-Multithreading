@@ -47,6 +47,33 @@
 			});
 
 			t8.Wait();
+
+			var parent = Task.Factory.StartNew(() => {
+				var child = Task.Factory.StartNew(() =>
+				{
+					Console.WriteLine($"Child task started {Task.CurrentId}");
+					Thread.Sleep(1000);
+					throw new Exception();
+					Console.WriteLine($"Child task completed {Task.CurrentId}");
+				}, TaskCreationOptions.AttachedToParent);
+
+				child.ContinueWith((t) => {
+					Console.WriteLine($"Hooray Task {t.Id}'s status is {t.Status}");
+				}, TaskContinuationOptions.AttachedToParent | TaskContinuationOptions.OnlyOnRanToCompletion);
+
+				child.ContinueWith((t) => {
+					Console.WriteLine($"Oops Task {t.Id}'s status is {t.Status}");
+				}, TaskContinuationOptions.AttachedToParent | TaskContinuationOptions.OnlyOnFaulted);
+			});
+
+			try
+			{
+				parent.Wait();
+			}
+			catch (AggregateException ae)
+			{
+				ae.Handle(e => true);
+			}
 		}
 	}
 }
