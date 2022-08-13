@@ -29,7 +29,8 @@
 			//ReaderWriterLockSlimExample.RunExample();
 			//ConcurrentDictionaryExamples.RunExample();
 			//BlockingCollectionExample.Run();
-			ContinuationExample.Run();
+			//ContinuationExample.Run();
+			BarrierExample.RunExample();
 		}
 
 		static int TextLength(object arg)
