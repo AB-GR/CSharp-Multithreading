@@ -31,7 +31,8 @@
 			//BlockingCollectionExample.Run();
 			//ContinuationExample.Run();
 			//BarrierExample.RunExample();
-			CountDownEventExample.RunExample();
+			//CountDownEventExample.RunExample();
+			ResetEvents.RunExample();
 		}
 
 		static int TextLength(object arg)
