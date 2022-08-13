@@ -10,6 +10,22 @@
 				yield return i;
 			}
 		}
+		
+		static void Demo()
+		{
+			result = Parallel.For(1, 21, (i, state) =>
+			{
+				if(i == 10)
+				{
+					//throw new Exception();
+					//state.Stop();
+					state.Break();
+				}
+
+			});
+		}
+
+		private static ParallelLoopResult result;
 
 		public static void Run()
 		{
@@ -25,7 +41,24 @@
 			var words = new string[] { "I", "Love", "You" };
 			//Parallel.ForEach(words, x => Console.Write($"{x}\t"));
 
-			Parallel.ForEach(GenerateSteps(0,22,3), x => Console.WriteLine(x));
+			//Parallel.ForEach(GenerateSteps(0,22,3), x => Console.WriteLine(x));
+
+			try
+			{
+				Demo();
+			}
+			catch (AggregateException ae)
+			{
+				ae.Handle(ex =>
+				{
+					Console.WriteLine(ex.Message);
+					return true;
+				});
+			}
+
+			Console.WriteLine($"{result.IsCompleted} {result.LowestBreakIteration}");
+
+			Console.ReadLine();
 		}
 	}
 }
