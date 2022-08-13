@@ -32,7 +32,8 @@
 			//ContinuationExample.Run();
 			//BarrierExample.RunExample();
 			//CountDownEventExample.RunExample();
-			ResetEvents.RunExample();
+			//ResetEvents.RunExample();
+			SemaphoreExample.RunExample();
 		}
 
 		static int TextLength(object arg)
