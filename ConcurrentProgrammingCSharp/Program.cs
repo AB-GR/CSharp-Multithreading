@@ -30,7 +30,8 @@
 			//ConcurrentDictionaryExamples.RunExample();
 			//BlockingCollectionExample.Run();
 			//ContinuationExample.Run();
-			BarrierExample.RunExample();
+			//BarrierExample.RunExample();
+			CountDownEventExample.RunExample();
 		}
 
 		static int TextLength(object arg)
