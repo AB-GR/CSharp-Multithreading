@@ -34,7 +34,8 @@
 			//CountDownEventExample.RunExample();
 			//ResetEvents.RunExample();
 			//SemaphoreExample.RunExample();
-			ParallelExample.Run();
+			//ParallelExample.Run();
+			ThreadLocalStorage.Run();
 		}
 
 		static int TextLength(object arg)
